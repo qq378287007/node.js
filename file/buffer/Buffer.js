@@ -2,6 +2,7 @@
 const buf0 = Buffer.from('runoob', 'ascii');
 console.log(buf0.toString('hex'));
 console.log(buf0.toString('base64'));
+console.log(buf0.toString('utf-8'));
 
 //创建
 // 创建一个长度为 10、且用 0 填充的 Buffer。
@@ -64,6 +65,7 @@ var buf2 = Buffer.from('RUNOOB');
 //将 buf2 插入到 buf1 指定位置上
 buf2.copy(buf1, 2);
 console.log(buf1.toString());
+
 
 //裁剪
 var buffer1 = Buffer.from('runoob');
