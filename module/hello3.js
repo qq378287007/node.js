@@ -1,5 +1,5 @@
 function Hello() { 
-    var name; 
+    let name; 
     this.setName = function(thyName) { 
         name = thyName; 
     }; 

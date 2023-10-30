@@ -1,4 +1,4 @@
-var Hello = require('./module_hello2');
+var Hello = require('./hello3');
 hello = new Hello(); 
 hello.setName('BYVoid'); 
 hello.sayHello(); 
