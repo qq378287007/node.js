@@ -1,5 +1,6 @@
 const Koa = require('koa');
 const app = new Koa();
+
 //判断当前环境是否是production环境。如果是，就使用缓存，如果不是，就关闭缓存。
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -20,18 +21,16 @@ app.use(async (ctx, next) => {
 //第一个middleware是记录URL以及页面执行时间
 app.use(async (ctx, next) => {
     console.log(`Process ${ctx.request.method} ${ctx.request.url}...`);
-    var
-        start = new Date().getTime(),
-        execTime;
+    const  start = new Date().getTime();
     await next();
-    execTime = new Date().getTime() - start;
+    const execTime = new Date().getTime() - start;
     ctx.response.set('X-Response-Time', `${execTime}ms`);
 });
 
 // static file support:
 //第二个middleware处理静态文件：
 if (!isProduction) {
-    let staticFiles = require('./static-files');
+    const staticFiles = require('./static-files');
     app.use(staticFiles('/static/', __dirname + '/static'));
 }
 
@@ -53,5 +52,5 @@ app.use(templating('views', {
 const controller = require('./controller');
 app.use(controller());
 
-app.listen(3003);
+app.listen(3000);
 console.log('app started at port 3000...');

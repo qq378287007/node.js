@@ -2,11 +2,9 @@ const url = require('url');
 
 const ws = require('ws');
 
-const Cookies = require('cookies');
 
 const Koa = require('koa');
 
-const bodyParser = require('koa-bodyparser');
 
 const controller = require('./controller');
 
@@ -33,6 +31,7 @@ let staticFiles = require('./static-files');
 app.use(staticFiles('/static/', __dirname + '/static'));
 
 // parse request body:
+const bodyParser = require('koa-bodyparser');
 app.use(bodyParser());
 
 // add nunjucks as view:
@@ -46,6 +45,7 @@ app.use(controller());
 
 let server = app.listen(3000);
 
+const Cookies = require('cookies');
 function parseUser(obj) {
     if (!obj) {
         return;

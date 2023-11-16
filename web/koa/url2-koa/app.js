@@ -33,9 +33,6 @@ for (var f of js_files) {
 */
 
 const Koa = require('koa');
-const bodyParser = require('koa-bodyparser');
-const controller = require('./controller');
-
 const app = new Koa();
 
 // log request URL:
@@ -45,11 +42,12 @@ app.use(async (ctx, next) => {
 });
 
 // parse request body:
+const bodyParser = require('koa-bodyparser');
 app.use(bodyParser());
 
 // add controllers:
+const controller = require('./controller');
 app.use(controller());
 
 app.listen(3000);
 console.log('app started at port 3000...');
-

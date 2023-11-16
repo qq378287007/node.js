@@ -7,15 +7,15 @@ var products = [{
 }];
 
 module.exports = {
-    'GET /api/products': async (ctx, next) => {
+    'GET /api/products': async (ctx, _next) => {
         ctx.response.type = 'application/json';
         ctx.response.body = {
             products: products
         };
     },
 
-    'POST /api/products': async (ctx, next) => {
-        var p = {
+    'POST /api/products': async (ctx, _next) => {
+        const p = {
             name: ctx.request.body.name,
             price: ctx.request.body.price
         };

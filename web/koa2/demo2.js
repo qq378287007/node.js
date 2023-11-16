@@ -1,4 +1,4 @@
-const Koa = require('koa');
+const Koa = require('Koa');
 const app = new Koa();
 
 // logger

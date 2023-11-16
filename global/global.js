@@ -1,3 +1,9 @@
+console.log(global);
+/*
+console.log(global.console);
+
+console.log(process);
+
 // 输出全局变量 __filename 的值
 console.log(__filename);
 // 输出全局变量 __dirname 的值
@@ -67,3 +73,4 @@ console.log('当前目录: ' + process.cwd());
 console.log('当前版本: ' + process.version);
 // 输出内存使用情况
 console.log(process.memoryUsage());
+*/

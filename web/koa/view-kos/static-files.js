@@ -6,11 +6,11 @@ const fs = require('mz/fs');
 // dir: 类似 __dirname + '/static'
 function staticFiles(url, dir) {
     return async (ctx, next) => {
-        let rpath = ctx.request.path;
+        const rpath = ctx.request.path;
         // 判断是否以指定的url开头:
         if (rpath.startsWith(url)) {
             // 获取文件完整路径:
-            let fp = path.join(dir, rpath.substring(url.length));
+            const fp = path.join(dir, rpath.substring(url.length));
             // 判断文件是否存在:
             if (await fs.exists(fp)) {
                 // 查找文件的mime:
