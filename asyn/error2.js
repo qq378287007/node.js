@@ -1,5 +1,3 @@
-
-
 function async(fn, callback) {
     // Code execution path breaks here.
     setTimeout(function () {
